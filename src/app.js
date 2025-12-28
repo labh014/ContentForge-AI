@@ -18,6 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
+const blogRoutes = require('../routes/blogRoutes');
+
+app.use('/api/articles', blogRoutes);
+
 app.get('/', (req, res) => {
     res.send('Home Route');
 });
