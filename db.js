@@ -1,10 +1,11 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 
 
 async function main() {
     try {
 
-        const mongoURI = "mongodb+srv://labh:1234@contentforgeai.ix237cq.mongodb.net/?appName=ContentForgeAI";
+        const mongoURI = process.env.MONGO_URI;
 
         await mongoose.connect(mongoURI, {
         });
