@@ -25,8 +25,8 @@ async function scrapeBlogDetails(url) {
             publishedDate: dateText ? new Date(dateText) : new Date(),
         };
 
-    } 
-    
+    }
+
     catch (err) {
         console.error(`Failed to scrape details for ${url}: ${err.message}`);
         return null;
@@ -47,7 +47,7 @@ async function scrapeOldestBlogs() {
     const url = "https://beyondchats.com/post-sitemap.xml";
 
     try {
-        
+
         const res = await axios.get(url);
         const $ = cheerio.load(res.data, { xmlMode: true });
 
@@ -69,7 +69,7 @@ async function scrapeOldestBlogs() {
 
         blogs.sort((a, b) => a.date - b.date);
 
-        let reqBlogs = blogs.slice(0, 10);
+        let reqBlogs = blogs.slice(0, 2);
 
         console.log("Oldest 10 blogs:");
 
